@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harsh Joshi — Web Developer & Security Practitioner</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root{
+  --bg:#05070a;
+  --panel:#071019;
+  --muted:#9aa8bd;
+  --text:#e6f0ff;
+  --accent:#3ae0ff;
+  --accent-soft:rgba(58,224,255,0.12);
+  --gold:#d4af37;
+  --gold-soft:rgba(212,175,55,0.15);
+  --radius:16px;
+  --shadow:0 10px 30px rgba(0,0,0,.6);
+}
+
+/* =========================
+   BASE
+========================= */
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"Inter",sans-serif;
+  background:linear-gradient(180deg,var(--bg),#04050a 60%);
+  color:var(--text);
+}
+
+.container{max-width:1100px;margin:auto;padding:28px}
+a{text-decoration:none;color:inherit}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  position:sticky;
+  top:0;
+  backdrop-filter:blur(10px);
+  background:rgba(3,6,10,.75);
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  width:44px;height:44px;
+  display:grid;place-items:center;
+  border-radius:10px;
+  font-weight:800;
+  background:linear-gradient(135deg,var(--accent),#5fbfff);
+  box-shadow:0 0 15px var(--gold-soft);
+}
+
+.nav .links{display:flex;gap:18px}
+.nav a.link{color:var(--muted);font-weight:600}
+.nav a.link:hover{color:var(--accent)}
+
+.nav .cta{
+  padding:10px 14px;
+  border-radius:12px;
+  background:linear-gradient(90deg,var(--accent),#60d0ff);
+  color:#021018;
+  font-weight:700;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{padding:80px 0}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 400px;
+  gap:40px;
+  align-items:center;
+}
+
+.eyebrow{
+  padding:8px 14px;
+  border-radius:999px;
+  background:var(--accent-soft);
+  border:1px solid rgba(58,224,255,.2);
+  font-size:12px;
+  color:var(--muted);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  display:inline-block;
+}
+
+h1{
+  font-size:42px;
+  margin:16px 0;
+}
+
+.tagline{
+  color:var(--muted);
+  font-size:18px;
+}
+
+.btn{
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:700;
+  border:0;
+  cursor:pointer;
+}
+
+.btn.primary{
+  background:linear-gradient(90deg,var(--accent),#60d0ff);
+  color:#021018;
+}
+
+.btn.ghost{
+  border:1px solid rgba(255,255,255,.1);
+  background:transparent;
+  color:var(--text);
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-card{
+  padding:20px;
+  border-radius:20px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.05);
+  box-shadow:var(--shadow);
+}
+
+.profile-photo{
+  width:120px;height:120px;
+  margin:auto;
+  padding:6px;
+  border-radius:999px;
+  background:linear-gradient(180deg,var(--gold-soft),rgba(60,191,255,.1));
+}
+
+.profile-photo img{
+  width:100%;height:100%;
+  object-fit:cover;
+  border-radius:999px;
+}
+
+.shape-toggle{
+  display:flex;
+  gap:8px;
+  margin-top:10px;
+  justify-content:center;
+}
+
+.shape-toggle button{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.1);
+  padding:6px 8px;
+  border-radius:8px;
+  color:var(--muted);
+  cursor:pointer;
+}
+
+/* =========================
+   PANELS
+========================= */
+
+.panel{
+  margin-top:30px;
+  padding:20px;
+  border-radius:16px;
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.05);
+}
+
+/* GOLD HEADING LINE */
+
+h2{
+  margin-bottom:16px;
+  position:relative;
+}
+
+h2::after{
+  content:"";
+  display:block;
+  width:60px;
+  height:3px;
+  margin-top:8px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline-item{
+  display:flex;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px dashed rgba(255,255,255,.08);
+}
+
+.timeline-item:last-child{border-bottom:none}
+
+.dot{
+  width:12px;height:12px;
+  border-radius:999px;
+  background:var(--gold);
+  margin-top:6px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  padding:40px 0;
+  text-align:center;
+  color:var(--muted);
+  border-top:1px solid rgba(255,255,255,.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+<div style="display:flex;align-items:center;gap:12px;">
+<div class="logo">HJ</div>
+<strong>Harsh Joshi</strong>
+</div>
+
+<nav class="links">
+<a class="link" href="#about">About</a>
+<a class="link" href="#skills">Skills</a>
+<a class="link" href="#education">Education</a>
+<a class="link" href="#contact">Contact</a>
+<a class="cta" href="My_Portfolio.pdf" download>Download Resume</a>
+</nav>
+</div>
+</header>
+
+<main>
+
+<section class="hero">
+<div class="container hero-grid">
+
+<div>
+<div class="eyebrow">
+HTML • CSS • Graphic Design • Generative AI • Web Security
+</div>
+
+<h1>Hi — I'm <span style="color:var(--accent)">Harsh Joshi</span></h1>
+
+<p class="tagline">
+I build secure, structured web applications and practical security tools.
+</p>
+
+<div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
+<a class="btn primary" href="mailto:joshiharsh735@gmail.com">Email Me</a>
+<a class="btn ghost" href="tel:+918108922959">Call Me</a>
+<a class="btn ghost" href="My_Portfolio.pdf" download>Download Resume</a>
+</div>
+
+<div class="panel">
+<strong style="color:var(--accent)">My Creation</strong>
+</div>
+
+<div class="panel">
+<strong style="color:var(--accent)">NetInspect — Web Security Scanner</strong>
+<p style="color:var(--muted);margin-top:6px">
+Custom-built vulnerability scanner focused on header inspection and risk reporting.
+</p>
+<img src="net.png">
+</div>
+
+</div>
+
+<aside class="profile-card">
+<div class="profile-photo" id="photo-wrap">
+<img src="your-photo.jpg" id="profile-img">
+</div>
+
+<h3 style="text-align:center;margin-top:14px;">Harsh Joshi</h3>
+<p style="text-align:center;color:var(--muted);">Web Developer • Security Practitioner</p>
+
+<div class="shape-toggle">
+<button onclick="setCircle()">Circle</button>
+<button onclick="setRect()">Rect</button>
+</div>
+
+</aside>
+
+</div>
+</section>
+
+<section id="education">
+<div class="container">
+<h2>Education</h2>
+
+<div class="panel">
+
+<div class="timeline-item">
+<div class="dot"></div>
+<div>
+<strong>S.V.I.S., Mumbai — Xth (2023)</strong>
+<div style="color:var(--muted);font-size:14px;margin-top:6px">
+Scored 76%
+</div>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="dot"></div>
+<div>
+<strong>Science Integrated + IT — XIIth (2025)</strong>
+<div style="color:var(--muted);font-size:14px;margin-top:6px">
+Focused on coding & problem solving
+</div>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="dot"></div>
+<div>
+<strong>Cyber Security & Ethical Hacking — IDEMI (2023)</strong>
+<div style="color:var(--muted);font-size:14px;margin-top:6px">
+Foundation in network security & ethical hacking
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="panel" style="margin-top:30px">
+<h3 style="color:var(--gold)">Skill Progress Overview</h3>
+
+<div style="margin-top:20px">
+
+<div style="margin-bottom:18px">
+<div style="display:flex;justify-content:space-between;color:var(--muted);font-size:14px">
+<span>HTML & CSS</span><span>90%</span>
+</div>
+<div style="height:8px;background:#0b1320;border-radius:8px;overflow:hidden">
+<div style="width:90%;height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));"></div>
+</div>
+</div>
+
+<div style="margin-bottom:18px">
+<div style="display:flex;justify-content:space-between;color:var(--muted);font-size:14px">
+<span>Web Security Fundamentals</span><span>80%</span>
+</div>
+<div style="height:8px;background:#0b1320;border-radius:8px;overflow:hidden">
+<div style="width:80%;height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));"></div>
+</div>
+</div>
+
+<div>
+<div style="display:flex;justify-content:space-between;color:var(--muted);font-size:14px">
+<span>Advanced Excel</span><span>85%</span>
+</div>
+<div style="height:8px;background:#0b1320;border-radius:8px;overflow:hidden">
+<div style="width:85%;height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));"></div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</section>
+
+<footer>
+© <span id="year"></span> Harsh Joshi — Secure. Structured. Practical.
+</footer>
+
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+
+function setCircle(){
+document.getElementById("photo-wrap").style.borderRadius="999px";
+document.getElementById("profile-img").style.borderRadius="999px";
+}
+
+function setRect(){
+document.getElementById("photo-wrap").style.borderRadius="16px";
+document.getElementById("profile-img").style.borderRadius="12px";
+}
+</script>
+
+</body>
+</html>
